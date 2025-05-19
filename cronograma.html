@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+
+{% block title %}Cronograma - ConcursoPrep{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">Seu Cronograma de Estudos</h1>
+        <p class="dashboard-subtitle">Planejamento personalizado para o concurso de Agente da PF</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Configurações do Cronograma</h3>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#configModal">Editar</button>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Tempo diário de estudo:</strong> 3 horas</p>
+                            <p><strong>Dias da semana:</strong> Segunda a Sábado</p>
+                            <p><strong>Data da prova:</strong> 21/03/2026</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Prioridade:</strong> Equilibrada entre blocos</p>
+                            <p><strong>Foco especial:</strong> Direito Administrativo, Direito Constitucional</p>
+                            <p><strong>Última atualização:</strong> 15/05/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Calendário de Estudos</h3>
+                    <div>
+                        <button class="btn btn-outline mr-2">Semana</button>
+                        <button class="btn btn-primary">Mês</button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <div class="calendar-title">Maio 2025</div>
+                            <div class="calendar-nav">
+                                <button class="btn btn-sm btn-outline"><i class="fas fa-chevron-left"></i></button>
+                                <button class="btn btn-sm btn-outline"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day-header">Dom</div>
+                            <div class="calendar-day-header">Seg</div>
+                            <div class="calendar-day-header">Ter</div>
+                            <div class="calendar-day-header">Qua</div>
+                            <div class="calendar-day-header">Qui</div>
+                            <div class="calendar-day-header">Sex</div>
+                            <div class="calendar-day-header">Sáb</div>
+                            
+                            <div class="calendar-day">
+                                <div class="calendar-date">28</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">29</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">30</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">1</div>
+                                <div class="calendar-event">Língua Portuguesa</div>
+                                <div class="calendar-event">Direito Administrativo</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">2</div>
+                                <div class="calendar-event">Direito Constitucional</div>
+                                <div class="calendar-event">Raciocínio Lógico</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">3</div>
+                                <div class="calendar-event">Direito Penal</div>
+                                <div class="calendar-event">Estatística</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">4</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div class="calendar-date">5</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">6</div>
+                                <div class="calendar-event">Informática</div>
+                                <div class="calendar-event">Legislação Especial</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">7</div>
+                                <div class="calendar-event">Contabilidade</div>
+                                <div class="calendar-event">Língua Portuguesa</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">8</div>
+                                <div class="calendar-event">Direito Administrativo</div>
+                                <div class="calendar-event">Direito Constitucional</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">9</div>
+                                <div class="calendar-event">Raciocínio Lógico</div>
+                                <div class="calendar-event">Direito Penal</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">10</div>
+                                <div class="calendar-event">Estatística</div>
+                                <div class="calendar-event">Informática</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">11</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div class="calendar-date">12</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">13</div>
+                                <div class="calendar-event">Legislação Especial</div>
+                                <div class="calendar-event">Contabilidade</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">14</div>
+                                <div class="calendar-event">Língua Portuguesa</div>
+                                <div class="calendar-event">Direito Administrativo</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">15</div>
+                                <div class="calendar-event">Direito Constitucional</div>
+                                <div class="calendar-event">Raciocínio Lógico</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">16</div>
+                                <div class="calendar-event">Direito Penal</div>
+                                <div class="calendar-event">Estatística</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">17</div>
+                                <div class="calendar-event">Informática</div>
+                                <div class="calendar-event">Legislação Especial</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">18</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div class="calendar-date">19</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">20</div>
+                                <div class="calendar-event">Contabilidade</div>
+                                <div class="calendar-event">Língua Portuguesa</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">21</div>
+                                <div class="calendar-event">Direito Administrativo</div>
+                                <div class="calendar-event">Direito Constitucional</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">22</div>
+                                <div class="calendar-event">Raciocínio Lógico</div>
+                                <div class="calendar-event">Direito Penal</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">23</div>
+                                <div class="calendar-event">Estatística</div>
+                                <div class="calendar-event">Informática</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">24</div>
+                                <div class="calendar-event">Legislação Especial</div>
+                                <div class="calendar-event">Contabilidade</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">25</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div class="calendar-date">26</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">27</div>
+                                <div class="calendar-event">Língua Portuguesa</div>
+                                <div class="calendar-event">Direito Administrativo</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">28</div>
+                                <div class="calendar-event">Direito Constitucional</div>
+                                <div class="calendar-event">Raciocínio Lógico</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">29</div>
+                                <div class="calendar-event">Direito Penal</div>
+                                <div class="calendar-event">Estatística</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">30</div>
+                                <div class="calendar-event">Informática</div>
+                                <div class="calendar-event">Legislação Especial</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">31</div>
+                                <div class="calendar-event">Contabilidade</div>
+                                <div class="calendar-event">Revisão Geral</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-date">1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Detalhes do Dia</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="task-list">
+                        <div class="task-header">
+                            Hoje - 19 de Maio de 2025
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task1">
+                            <div class="task-content">
+                                <div class="task-title">Língua Portuguesa - Compreensão de Textos</div>
+                                <div class="task-details">Leitura e interpretação de textos dissertativos</div>
+                            </div>
+                            <div class="task-time">45 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task2" checked>
+                            <div class="task-content">
+                                <div class="task-title">Direito Administrativo - Atos Administrativos</div>
+                                <div class="task-details">Conceito, requisitos e atributos</div>
+                            </div>
+                            <div class="task-time">60 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task3">
+                            <div class="task-content">
+                                <div class="task-title">Direito Constitucional - Direitos Fundamentais</div>
+                                <div class="task-details">Direitos e deveres individuais e coletivos</div>
+                            </div>
+                            <div class="task-time">60 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task4">
+                            <div class="task-content">
+                                <div class="task-title">Raciocínio Lógico - Lógica de Argumentação</div>
+                                <div class="task-details">Analogias, inferências e deduções</div>
+                            </div>
+                            <div class="task-time">45 min</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success">Marcar Todos como Concluídos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Configuração -->
+<div class="modal fade" id="configModal" tabindex="-1" role="dialog" aria-labelledby="configModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="configModalLabel">Configurar Cronog
+(Content truncated due to size limit. Use line ranges to read in chunks)

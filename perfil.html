@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil - ConcursoPrep{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">Seu Perfil</h1>
+        <p class="dashboard-subtitle">Gerencie suas informações pessoais e preferências de estudo</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Informações Pessoais</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{ url_for('perfil') }}">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ current_user.name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ current_user.email }}" required>
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Alterar Senha</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{ url_for('perfil') }}">
+                        <input type="hidden" name="form_type" value="password">
+                        <div class="form-group">
+                            <label for="current_password" class="form-label">Senha Atual</label>
+                            <input type="password" class="form-control" id="current_password" name="current_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_password" class="form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="new_password" name="new_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password" class="form-label">Confirmar Nova Senha</label>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Preferências de Estudo</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{ url_for('configurar_cronograma') }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tempo_diario" class="form-label">Tempo Diário de Estudo (minutos)</label>
+                                    <input type="number" class="form-control" id="tempo_diario" name="tempo_diario" value="{{ current_user.daily_study_time }}" min="30" max="720" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="concurso_id" class="form-label">Concurso</label>
+                                    <select class="form-control" id="concurso_id" name="concurso_id">
+                                        {% for concurso in concursos %}
+                                        <option value="{{ concurso.id }}" {% if cronograma and cronograma.concurso_id == concurso.id %}selected{% endif %}>{{ concurso.nome }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="data_prova" class="form-label">Data da Prova</label>
+                                    <input type="date" class="form-control" id="data_prova" name="data_prova" value="{{ cronograma.data_fim.strftime('%Y-%m-%d') if cronograma and cronograma.data_fim else '' }}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Dias de Estudo</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="segunda" name="dias_estudo[]" value="0" checked>
+                                        <label class="form-check-label" for="segunda">Segunda-feira</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terca" name="dias_estudo[]" value="1" checked>
+                                        <label class="form-check-label" for="terca">Terça-feira</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="quarta" name="dias_estudo[]" value="2" checked>
+                                        <label class="form-check-label" for="quarta">Quarta-feira</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="quinta" name="dias_estudo[]" value="3" checked>
+                                        <label class="form-check-label" for="quinta">Quinta-feira</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sexta" name="dias_estudo[]" value="4" checked>
+                                        <label class="form-check-label" for="sexta">Sexta-feira</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sabado" name="dias_estudo[]" value="5" checked>
+                                        <label class="form-check-label" for="sabado">Sábado</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="domingo" name="dias_estudo[]" value="6">
+                                        <label class="form-check-label" for="domingo">Domingo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">Atualizar Cronograma</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Estatísticas da Conta</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p><strong>Data de cadastro:</strong> {{ current_user.created_at.strftime('%d/%m/%Y') }}</p>
+                            <p><strong>Último acesso:</strong> {{ current_user.last_login.strftime('%d/%m/%Y %H:%M') if current_user.last_login else 'Primeiro acesso' }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Cronogramas criados:</strong> {{ cronogramas_count }}</p>
+                            <p><strong>Tarefas concluídas:</strong> {{ tarefas_concluidas }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Total de horas estudadas:</strong> {{ horas_estudadas }}</p>
+                            <p><strong>Disciplinas com melhor desempenho:</strong> {{ melhor_disciplina }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

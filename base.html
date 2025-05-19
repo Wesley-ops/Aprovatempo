@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ConcursoPrep - Seu Plano de Estudos Personalizado{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container navbar-container">
+                <a href="{{ url_for('index') }}" class="navbar-logo">ConcursoPrep</a>
+                <button class="navbar-toggle" id="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-menu" id="navbar-menu">
+                    <li class="navbar-item">
+                        <a href="{{ url_for('index') }}" class="navbar-link">Início</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="navbar-item">
+                        <a href="{{ url_for('dashboard') }}" class="navbar-link">Dashboard</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('cronograma') }}" class="navbar-link">Cronograma</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('perfil') }}" class="navbar-link">Perfil</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('logout') }}" class="navbar-link">Sair</a>
+                    </li>
+                    {% else %}
+                    <li class="navbar-item">
+                        <a href="{{ url_for('login') }}" class="navbar-link">Entrar</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('register') }}" class="navbar-link">Cadastrar</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 ConcursoPrep. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            navbarToggle.addEventListener('click', function() {
+                navbarMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

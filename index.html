@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConcursoPrep - Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container navbar-container">
+                <a href="{{ url_for('index') }}" class="navbar-logo">ConcursoPrep</a>
+                <button class="navbar-toggle" id="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-menu" id="navbar-menu">
+                    <li class="navbar-item">
+                        <a href="{{ url_for('index') }}" class="navbar-link">Início</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('login') }}" class="navbar-link">Entrar</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="{{ url_for('register') }}" class="navbar-link">Cadastrar</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Organize seus estudos para concursos de forma inteligente</h1>
+            <p class="hero-subtitle">Crie um cronograma personalizado baseado no edital e no seu tempo disponível</p>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Comece Agora</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Cronograma Personalizado</h3>
+                        <p>Gere um plano de estudos adaptado ao seu tempo disponível e às disciplinas mais importantes do edital.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Acompanhe seu Progresso</h3>
+                        <p>Visualize seu avanço em cada disciplina e mantenha-se motivado com estatísticas de desempenho.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="feature-title">Foco no que Importa</h3>
+                        <p>Priorize os conteúdos mais cobrados nas provas e otimize seu tempo de estudo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="mb-4">Preparado para a Polícia Federal</h2>
+                    <p class="mb-3">Nosso sistema foi desenvolvido inicialmente para o concurso de Agente da Polícia Federal, com todas as disciplinas e conteúdos do edital já cadastrados.</p>
+                    <p class="mb-3">Você informa quanto tempo tem disponível para estudar diariamente, e nós criamos um cronograma otimizado que prioriza os conteúdos mais importantes.</p>
+                    <p class="mb-4">Em breve, estaremos expandindo para outros concursos públicos!</p>
+                    <a href="{{ url_for('register') }}" class="btn btn-primary">Criar Minha Conta</a>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Disciplinas Cobertas</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Língua Portuguesa</li>
+                                <li>Noções de Direito Administrativo</li>
+                                <li>Noções de Direito Constitucional</li>
+                                <li>Noções de Direito Penal e Processual Penal</li>
+                                <li>Legislação Especial</li>
+                                <li>Estatística</li>
+                                <li>Raciocínio Lógico</li>
+                                <li>Informática</li>
+                                <li>Contabilidade Geral</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Como Funciona</h2>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <h4>1. Crie sua conta</h4>
+                            <p>Registre-se gratuitamente em nossa plataforma.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>2. Defina seu tempo</h4>
+                            <p>Informe quanto tempo você tem disponível para estudar diariamente.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h4>3. Receba seu plano</h4>
+                            <p>Nosso sistema gera um cronograma personalizado baseado no edital.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4>4. Acompanhe seu progresso</h4>
+                            <p>Marque as tarefas concluídas e visualize seu avanço.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 ConcursoPrep. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            navbarToggle.addEventListener('click', function() {
+                navbarMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

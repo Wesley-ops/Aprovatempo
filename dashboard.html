@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - ConcursoPrep{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">Olá, {{ current_user.name }}</h1>
+        <p class="dashboard-subtitle">Aqui está seu progresso de estudos para o concurso de Agente da PF</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Progresso Geral</h3>
+                </div>
+                <div class="card-body">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>45% concluído</span>
+                            <span>Meta: 100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Dias de Estudo</div>
+                    <div class="stat-value">24</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Horas Estudadas</div>
+                    <div class="stat-value">72</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Disciplinas</div>
+                    <div class="stat-value">9</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Tópicos Concluídos</div>
+                    <div class="stat-value">32</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Progresso por Disciplina</h3>
+                </div>
+                <div class="card-body">
+                    <div class="progress-container">
+                        <h4 class="mb-2">Língua Portuguesa</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>65%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container mt-3">
+                        <h4 class="mb-2">Direito Administrativo</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>40%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container mt-3">
+                        <h4 class="mb-2">Direito Constitucional</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>55%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container mt-3">
+                        <h4 class="mb-2">Direito Penal</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>30%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container mt-3">
+                        <h4 class="mb-2">Estatística</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>25%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Tarefas de Hoje</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="task-list">
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task1">
+                            <div class="task-content">
+                                <div class="task-title">Língua Portuguesa - Compreensão de Textos</div>
+                                <div class="task-details">Leitura e interpretação de textos dissertativos</div>
+                            </div>
+                            <div class="task-time">45 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task2" checked>
+                            <div class="task-content">
+                                <div class="task-title">Direito Administrativo - Atos Administrativos</div>
+                                <div class="task-details">Conceito, requisitos e atributos</div>
+                            </div>
+                            <div class="task-time">60 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task3">
+                            <div class="task-content">
+                                <div class="task-title">Direito Constitucional - Direitos Fundamentais</div>
+                                <div class="task-details">Direitos e deveres individuais e coletivos</div>
+                            </div>
+                            <div class="task-time">60 min</div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox" id="task4">
+                            <div class="task-content">
+                                <div class="task-title">Raciocínio Lógico - Lógica de Argumentação</div>
+                                <div class="task-details">Analogias, inferências e deduções</div>
+                            </div>
+                            <div class="task-time">45 min</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('cronograma') }}" class="btn btn-outline">Ver Cronograma Completo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

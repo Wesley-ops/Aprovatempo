@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro - ConcursoPrep{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="auth-container">
+        <h2 class="auth-title">Criar Conta</h2>
+        <form method="post" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <label for="name" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password" class="form-label">Confirmar Senha</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+            </div>
+            <div class="text-center mt-3">
+                <p>Já tem uma conta? <a href="{{ url_for('login') }}">Entrar</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
